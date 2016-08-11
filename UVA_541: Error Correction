@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+#define ll  long long int
+using namespace std;
+
+
+int main()
+{ ll n;
+
+
+  while(cin>>n)
+  {   if(!n)
+  break;
+        ll sr[n+5],sc[n+5],s,a[n+5][n+5];
+        memset(sc,0,sizeof(sc));
+      vector<ll>x,y;
+        for(ll i=1; i<=n; i++)
+  {    s=0;
+
+        for(ll j=1; j<=n; j++)
+        {
+              cin>>a[i][j];
+
+              s+=a[i][j];
+
+              sc[j]=a[i][j]+sc[j];
+           
+
+        }
+        sr[i]=s;
+
+  }
+  //for checking odd sum at row or column;
+ for(int i=1; i<=n; i++)
+ {
+   if(sr[i]%2)
+      x.push_back(i);
+   if(sc[i]%2)
+      y.push_back(i);
+
+ }
+
+ if(x.size()==0 && y.size()==0)
+      cout<<"OK"<<endl;
+ else if(x.size()==1 && y.size()==1)  // if there is only one position to change
+      cout<<"Change bit ("<<x[0]<<","<<y[0]<<")"<<endl;
+ else
+      cout<<"Corrupt"<<endl;}
+
+}
