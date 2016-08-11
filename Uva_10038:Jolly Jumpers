@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+#define ll  long long int
+using namespace std;
+
+
+int main()
+{
+    ll n;
+    while(cin>>n)
+    {
+          ll a[n],v[n];
+          set<ll>d;
+          for(int i=0; i<n; i++)
+            cin>>a[i];
+          for(int i=0; i<n-1; i++)
+          {ll p=abs(a[i+1]-a[i]);
+                if(p>0 && p<n)
+            d.insert(p);}
+
+ if(d.size()==n-1)
+      cout<<"Jolly"<<endl;
+      else
+            cout<<"Not jolly"<<endl;
+    }}
