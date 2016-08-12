@@ -16,29 +16,27 @@ int main()
            cin>>p[i];
           s+=p[i];
       }
-     // cout<<av<<endl;
+    
       av=s/n;
-      //cout<<av<<endl;
+     
       for(ll i=1; i<=n; i++)
       {
                r=(long double)(ll)((p[i]-av)*100)/100.0;
-            //cout<<fixed<<setprecision(2)<<r<<endl;
+            
             if(r<0)
                   sum2-=r;
              else
                   sum1+=r;
 
-                 // cout<<sum1<<" "<<sum2<<endl;
+                
       }
-      //sum2*=(-1.00);
-      //cout<<sum2<<" "<<sum1<<endl;
+      
      if(sum1<sum2)
     cout<<"$"<<fixed<<setprecision(2)<<sum2<<endl;
 
      else
        cout<<"$"<<fixed<<setprecision(2)<<sum1<<endl;
-     //;
-      //cout<<r<<endl;
+    
       }
 
  }
