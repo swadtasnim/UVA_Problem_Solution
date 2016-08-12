@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+#define ll  unsigned long long int
+using namespace std;
+
+
+int main()
+{   ll p10[10]={1,10,100,1000,10000,100000,1000000,10000000,100000000,1000000000};
+     ll j,k,d,n,g,len,t=1;
+     double pw;
+      string p;
+      while(cin>>j)
+      {
+            if(j==-1)
+                  break;
+            cin>>p;
+           len=p.length()-p.find(".")-1;
+             k=len-j;
+           if(j)   //if ani repeating digit exist
+            d=p10[k+j]-p10[k];
+            else    //if not
+                  d=p10[k];
+
+
+            n=0;
+
+           for(ll i=2; i<p.length(); i++)
+           {
+                 n=n*10 + (p[i]-'0');
+
+           }
+
+           if(j)
+           n=n-n/p10[j];
+
+            g=__gcd(n,d);
+            cout<<"Case "<<t<<": "<<(ll)n/g<<"/"<<(ll)d/g<<endl;
+            t++;
+      }
+
+
+ }
