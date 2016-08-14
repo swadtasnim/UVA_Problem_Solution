@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+#define ll   unsigned long long int
+using namespace std;
+ll f[10000],n,m,o;
+vector<ll>pr;
+map<char,ll>p;
+
+int main()
+{
+p['B']=p['F']=p['P']=p['V']=1;
+p['C']=p['G']=p['J']=p['K']=p['Q']=p['S']=p['X']=p['Z']=2;
+p['D']=p['T']=3;
+p['L']=4;                          
+p['M']=p['N']=5;
+p['R']=6;
+string s;
+while(cin>>s)
+{
+          ll i=0;
+
+while(s[i])
+
+{         if(p[s[i]] && (p[s[i]]!=p[s[i-1]]))
+          cout<<p[s[i]];
+          i++;
+}
+cout<<endl;
+s.clear();
+}
+
+
+
+
+
+}
+
+
