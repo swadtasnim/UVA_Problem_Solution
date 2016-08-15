@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+#define ll   unsigned long long int
+using namespace std;
+ll n,n1,n2,ans2;
+vector<ll>ans;
+int main()
+{
+while(cin>>n)
+{
+          if(!n)
+             break;
+           n1=1;
+           n2=0;
+           ll s=0;
+           while(n1<=n)
+           {          if((n & n1))
+                       {    n2++;
+                                 if(n2 % 2)
+                                 s+=n1;}
+                     n1=n1<<1;
+
+           }
+           cout<<s<<" "<<n-s<<endl;
+}
+
+
+
+}
+
+
