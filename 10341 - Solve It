@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+#define ll   int
+using namespace std;
+
+ll p,q,r,s,t,u;
+double fun( double x)
+{
+          return p *exp(-x)+ q*sin(x) + r*cos(x) + s*tan(x) + t*x*x + u;
+}
+
+ int main()
+ {
+  while(cin>>p>>q>>r>>s>>t>>u)
+  { double m,l=0,h=1;
+   //cout<<"h"<<endl;
+            if(fun(1)*fun(0)>0)
+                    cout<<"No solution"<<endl;
+
+            else
+            {
+                   int mn=0;
+                     while(mn<100)
+                     {m=(l+h)/2;
+                      //cout<<fun(m)<<endl;
+                     if(fun(m)>0)
+                              l=m;
+                     else
+                              h=m;
+                // cout<<m<<endl;
+                              mn++;}
+                              cout<<fixed<<setprecision(4)<<h<<endl;
+
+            }
+
+  }
+
+ }
