@@ -1,0 +1,61 @@
+#include<bits/stdc++.h>
+#define ll   int
+using namespace std;
+ll n,in[101][101],s[100];
+ll kandane(ll n)
+{
+   ll max_cur,max_so,maxi=INT_MIN;
+   for(int i=0; i<n; i++)
+   {
+             memset(s,0,n*sizeof(int));
+
+             for(int j=i; j<n; j++)
+             {
+                       max_cur=0;
+                       max_so=INT_MIN;
+
+                       for(int k=0; k<n; k++)
+                       {
+
+                                 s[k]+=in[j][k];
+
+                                 max_cur=max(0,max_cur+s[k]);
+
+                                 max_so=max(max_cur,max_so);
+                       }
+
+                       maxi=max(maxi,max_so);
+
+             }
+
+   }
+
+   return maxi;
+}
+
+ int main()
+ {
+          /* 1D kandane's formula:
+
+          ll max_cur=0,max_so=0;
+           for(int i=0; i<8 ; i++)
+           {
+                     max_cur+=n[i];
+                     if(max_cur<0)
+                              max_cur=0;
+                     if(max_so<max_cur)
+                              max_so=max_cur;
+           }
+           cout<<max_so<<endl;*/
+
+           while(cin>>n)
+           {for(int i=0; i<n; i++)
+           {
+                     for(int j=0; j<n; j++)
+                     {
+                               cin>>in[i][j];
+                     }
+           }
+
+           cout<<kandane(n)<<endl;}
+ }
