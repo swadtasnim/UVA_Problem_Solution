@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+#define ll  long long int
+using namespace std;
+
+  ll penny[]={1,5,10,25,50};
+   ll dp[6][300100];
+  ll make;
+  ll rec(ll i,ll n)
+  {       //cout<<i<<" "<<n<<endl;
+            if(i>=5)
+                    {           if(n==0)
+                              return 1;
+                              else
+                               return 0;
+                              }
+             if(dp[i][n]!=-1)
+                              return dp[i][n];
+      ll p1=0,p2=0;
+
+            if(n-penny[i]>=0) p1=rec(i,n-penny[i]);
+              p2=rec(i+1,n);
+                    return dp[i][n]=p1+p2;
+
+  }
+
+
+int main()
+{   memset(dp,-1,sizeof(dp));
+   while(cin>>make)
+   {
+             ll r=rec(0,make);
+   if(r!=1)
+   cout<<"There are "<<r<<" ways to produce "<<make<<" cents change."<<endl;
+   else
+          cout<<"There is only 1 way to produce "<<make<<" cents change."<<endl;}
+}
+
