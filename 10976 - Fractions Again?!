@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+#define ll   long long int
+#define pi 3.14159265358979323
+
+
+using namespace std;
+
+ll x,y,k,n;
+vector<pair<ll,ll>>x1;
+int main()
+{
+          while(cin>>n)
+          {       y=n+1;
+                 ll i=0;
+                    while(y!=2*n)
+                    {
+                        if((y*n)%(y-n)==0)
+                              {x1.push_back(make_pair((y*n)/(y-n),y));
+                               }
+                           //cout<<x<<" "<<y<<endl;
+                           y++;
+                    }
+                   x1.push_back(make_pair((y*n)/(y-n),y));
+                    cout<<x1.size()<<endl;
+                    for(ll j=0; j<x1.size(); j++)
+                              cout<<"1/"<<n<<" = 1/"<<x1[j].first<<" + 1/"<<x1[j].second<<endl;
+                              x1.clear();
+          }
+}
+
+
