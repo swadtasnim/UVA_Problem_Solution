@@ -1,0 +1,82 @@
+#include<bits/stdc++.h>
+#define ll      unsigned long long int
+#define SIZE 100005
+#define valid(x,y) x>=0 and x<row and y>=0 and y<col
+#define pai pair<int,int>
+using namespace std;
+
+//vector<int>v[1000];
+queue<pai>q;
+int n,o,p,s,row,col;
+int x[]={1,-1,0,0};
+int y[]={0,0,1,-1};
+int vis[1000][1000],dis[1000][1000],bomb[1000][1000];
+void bfs(int sx,int sy)
+{
+          memset(vis,0,sizeof(vis));
+          memset(dis,0,sizeof(dis));
+
+          vis[sx][sy]=1;
+          q.push(pai(sx,sy));
+
+
+          while(!q.empty())
+          {
+                    pai f=q.front();
+
+                    //cout<<f<<" ";
+
+                    q.pop();
+                    for(int d=0; d<4; d++)
+                    {
+                             int fx=f.first + x[d];
+                             int fy=f.second + y[d];
+
+
+
+                              if(valid(fx,fy) && bomb[fx][fy]!=-1 && !vis[fx][fy] )
+                              {
+                                        vis[fx][fy]=1;
+                                        dis[fx][fy]=dis[f.first][f.second]+1;
+                                        q.push(pai(fx,fy));
+                              }
+
+
+          } }
+
+}
+
+int main()
+{
+while(cin>>row>>col)
+{
+          if(!row && !col)
+               return 0;
+
+
+       memset(bomb,0,sizeof(bomb));
+
+          int R;
+          cin>>R;
+          for(int i=1; i<=R; i++)
+          {
+               int r,c;
+               cin>>r>>c;
+               for(int j=0; j<c ; j++)
+               {
+                         cin>>n;
+                         bomb[r][n]=-1;
+               }
+
+          }
+
+          int sx,sy,ds,dy;
+          cin>>sx>>sy>>ds>>dy;
+          bfs(sx,sy);
+          cout<<dis[ds][dy]<<endl;
+
+}
+
+
+
+}
