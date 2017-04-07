@@ -1,0 +1,68 @@
+#include<bits/stdc++.h>
+#define ll      unsigned long long int
+#define SIZE 100005
+#define valid(x,y) x>=1 and x<=row and y>=1 and y<=col
+#define pai pair<int,int>
+using namespace std;
+
+//vector<int>v[1000];
+queue<pai>q;
+int n,o,p,s,row=8,col=8;
+int x[]={1,1,-1,-1,2,2,-2,-2};
+int y[]={2,-2,2,-2,1,-1,1,-1};
+int vis[9][9],dis[9][9];
+void bfs(int sx,int sy)
+{
+          memset(vis,0,sizeof(vis));
+          memset(dis,0,sizeof(dis));
+
+          vis[sx][sy]=1;
+          q.push(pai(sx,sy));
+
+
+          while(!q.empty())
+          {
+                    pai f=q.front();
+
+                    //cout<<f<<" ";
+
+                    q.pop();
+                    for(int d=0; d<8; d++)
+                    {
+                             int fx=f.first + x[d];
+                             int fy=f.second + y[d];
+
+
+
+                              if(valid(fx,fy) && !vis[fx][fy] )
+                              {
+                                        vis[fx][fy]=1;
+                                        dis[fx][fy]=dis[f.first][f.second]+1;
+                                        q.push(pai(fx,fy));
+                              }
+
+
+          } }
+
+}
+
+int main()
+{
+          string s,d;
+
+
+while(cin>>s>>d)
+{
+     int sy=int(s[0])-'a'+1;
+     int dy=int(d[0])-'a'+1;
+     int sx=int(s[1])-'0', dx=int(d[1])-'0';
+     //cout<<sx<<" "<<sy<<" "<<dx<<" "<<dy<<endl;
+     bfs(sx,sy);
+     cout<<"To get from "<<s<<" to "<<d<<" takes "<<dis[dx][dy]<<" knight moves."<<endl;
+
+
+}
+
+
+
+}
